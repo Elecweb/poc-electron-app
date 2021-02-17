@@ -8,6 +8,7 @@ import theme from './styles/theme';
 import TodoDataProvider from './contexts/TodoDataProvider';
 
 export default function App() {
+  console.log('hey');
   return (
     <HashRouter>
       <ThemeProvider theme={theme}>
