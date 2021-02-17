@@ -14,6 +14,7 @@ const Router = () => {
         <Route path="/pokemons" component={Pokemons} />
         <Route path="/add" component={AddTodo} />
         <Route path="/edit/:id" component={EditTodo} />
+        <Route path="/" component={ListTodo} />
       </Switch>
       <DeleteDialog />
     </>
