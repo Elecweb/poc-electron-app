@@ -37,7 +37,7 @@ const ListTodo = ({ history }: RouteComponentProps) => {
           variant="contained"
           color="primary"
           style={{
-            marginRight: 24,
+            marginRight: 48,
           }}
           onClick={() => {
             history.push('/add');
