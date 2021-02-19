@@ -27,7 +27,7 @@ const AddTodo = ({ history }: RouteComponentProps) => {
 
   const handleSubmit = () => {
     setTodos(values.todoText);
-    history.push('/');
+    history.push('/   ');
   };
 
   return (
@@ -35,7 +35,7 @@ const AddTodo = ({ history }: RouteComponentProps) => {
       <Card>
         <form>
           <Box width={400} px={4} py={4}>
-            <Box display="flex" mb={3} alignItems="center">
+            <Box display="flex        " mb={3} alignItems="center  ">
               <Box mr={1}>
                 <IconButton
                   aria-label="delete"
