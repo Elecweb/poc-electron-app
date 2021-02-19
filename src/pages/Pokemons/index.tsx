@@ -2,7 +2,6 @@ import React from 'react';
 import {
   Avatar,
   Box,
-  Button,
   IconButton,
   Paper,
   Table,
@@ -15,10 +14,21 @@ import {
 } from '@material-ui/core';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import { RouteComponentProps } from 'react-router-dom';
+import styled from 'styled-components';
 import usePokemons from '../../services/pokemons';
 
+const CustomTableRow = styled(TableRow)`
+  :hover {
+    cursor: pointer;
+  }
+`;
 const Pokemons = ({ history }: RouteComponentProps) => {
   const { pokemons } = usePokemons();
+  const handleClickView = (id: number) => {
+    // console.log(id);
+    history.push(`/pokemon/${id}/`);
+  };
+
   return (
     <Box pt={11} pb={6}>
       <Box mb={3} display="flex">
@@ -52,19 +62,23 @@ const Pokemons = ({ history }: RouteComponentProps) => {
           </TableHead>
           <TableBody>
             {pokemons.map((row) => (
-              <TableRow key={row.name}>
+              <CustomTableRow
+                key={row.name}
+                onClick={() => handleClickView(row.id)}
+              >
                 <TableCell component="th" scope="row">
                   <Avatar
                     alt={row.name}
                     src={row.sprites.other['official-artwork'].front_default}
                   />
                 </TableCell>
+
                 <TableCell component="th" scope="row">
                   {row.name}
                 </TableCell>
                 <TableCell align="right">{row.weight}</TableCell>
                 <TableCell align="right">{row.height}</TableCell>
-              </TableRow>
+              </CustomTableRow>
             ))}
           </TableBody>
         </Table>
